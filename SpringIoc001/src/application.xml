@@ -2,8 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<bean id="f1" class="spring.Foo">
-</bean>
-       <bean id="f2" class="spring.Foo">
-       </bean>
+    <bean id="f1" class="spring.Foo">
+
+    </bean>
+    <!--容器直接调用类(class屬性指定的)的构造方法创建对象-->
+    <bean id="f2" class="spring.Foo">
+    </bean>
+    <!--容器直接调用类(class屬性指定的)静态的工程方法(factory-method)來返回对象-->
+    <bean id="c" class="java.util.Calendar" factory-method="getInstance">
+    </bean>
+    <!--scope="singleton":单例,只创建一个对象,每次调用getBean,返回相同的对象.
+        scope="prototype" 每次调用getBean时,都创建一个新的对象
+    -->
+    <bean id="b" class="spring.Bar" scope="singleton">
+    </bean>
+    <!--init-method:对象创建时调用该方法
+        destroy-method 对象销毁时调用该方法
+    -->
+    <bean id="d" class="spring.Goo" init-method="f1" destroy-method="f2">
+    </bean>
+
 </beans>

@@ -14,7 +14,7 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/application.xml</file>
+          <file>file://$MODULE_DIR$/src/application.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -26,7 +26,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.15" level="application_server_libraries" />
     <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
