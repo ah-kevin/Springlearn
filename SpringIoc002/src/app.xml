@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<bean id="empDao" class="EmpDao.EmpDao">
-</bean>
-<bean id="dempDao" class="EmpDao.DempDao">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-</bean>
-<bean id="empService" class="EmpDao.EmpService" autowire="byName">
-</bean>
+<!--装载一个熟属性文件
+    事实上,spring创建另一个properties对象,然后将属性的内容加载到该对象中,该对象和其他一样被spring容器管理,标识符为id的值
+-->
+    <util:properties id="db" location="classpath:db.properties"/>
+
+
+    <bean id="empDao" class="EmpDao.EmpDao">
+    </bean>
+    <bean id="dempDao" class="EmpDao.DempDao">
+    </bean>
+    <bean id="empService" class="EmpDao.EmpService" autowire="byName">
+    </bean>
+
+    <!--<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="url" value="#{db.url}"/>-->
+        <!--<property name="driverClassName" value="#{db.driver}"/>-->
+        <!--<property name="username" value="#{db.username}"/>-->
+        <!--<property name="password" value="#{db.password}"/>-->
+    <!--</bean>-->
+
 </beans>
